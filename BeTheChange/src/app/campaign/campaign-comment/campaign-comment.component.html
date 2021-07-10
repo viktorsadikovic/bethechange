@@ -1,0 +1,43 @@
+<div class="comment my-3" *ngIf="!flagEdit">
+  <div class="row pt-2 px-2">
+    <div class="col-sm-8" style="cursor: pointer;" [routerLink]="['/profile', submitter?.email]">
+      <img width="50" [src]="submitter?.profilePictureUrl" class="rounded-circle">
+      <span style="padding-left: 10px;">{{submitter?.name}} {{submitter?.surname}}</span> <span class="text-muted" style="padding-left: 15px;">{{comment?.submissionTime | date:'medium' }}</span>
+    </div>
+    <div class="col-sm-4">
+      <fa-icon *ngIf="isAuthor()" class="trash" size="1x" style="cursor: pointer;" [icon]="faTrash" (click)="removeComment()"></fa-icon>
+      <fa-icon *ngIf="isSubmitter()" class="trash" size="1x" style="cursor: pointer;" [icon]="faPen" (click)="editComment()"></fa-icon>
+
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-sm-12 p-4">
+     {{comment?.content}}
+    </div>
+  </div>
+</div>
+
+<div class="comment my-3" *ngIf="flagEdit">
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+  <div class="row pt-2 px-2">
+    <div class="col-sm-8">
+      <img width="50" [src]="submitter?.profilePictureUrl" class="rounded-circle">
+      <span style="padding-left: 10px;">{{submitter?.name}} {{submitter?.surname}}</span> <span class="text-muted" style="padding-left: 15px;">{{comment?.submissionTime | date:'medium' }}</span>
+    </div>
+
+  </div>
+  <div class="row pt-2">
+    <div class="col-sm-12 p-4">
+      <textarea rows="3" formControlName="content" class="form-control"></textarea>
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-sm-6 p-4">
+      <button type="button" class="btn w-100 btn-danger" (click)="cancel()">Откажи</button>
+    </div>
+    <div class="col-sm-6 p-4">
+      <button type="submit" class="btn w-100 custom-button" [disabled]="!commentForm.valid">Зачувај</button>
+    </div>
+  </div>
+</form>
+</div>

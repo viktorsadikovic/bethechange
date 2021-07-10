@@ -1,0 +1,44 @@
+<div class="container mt-4 mb-4 pb-5">
+
+  <div class="row text-center">
+    <div class="col-md-6 m-auto">
+      <h1>Најави се</h1>
+    </div>
+  </div>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="row pt-4">
+      <div class="col-md-5 m-auto">
+        <div class="form-group">
+          <label for="email">Е-адреса</label>
+          <div *ngIf="email.invalid && (email.dirty || email.touched) && email.errors.required" class="alert alert-danger">Required</div>
+          <div *ngIf="email.invalid && (email.dirty || email.touched) && email.errors.email" class="alert alert-danger">Email must contain @ and . </div>
+          <input type="email" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Внеси е-адреса">
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-5 m-auto">
+        <div class="form-group">
+          <label for="password">Лозинка</label>
+          <div *ngIf="password.invalid && (password.dirty || password.touched) && password.errors.required" class="alert alert-danger">Required</div>
+          <input type="password" formControlName="password" class="form-control" id="password" aria-describedby="passwordHelp" placeholder="Внеси лозинка">
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-5 m-auto">
+        <button type="submit" class="btn w-100 custom-button" [disabled]="!loginForm.valid">Најави се</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5 m-auto">
+        <p class="text-center"><a [routerLink]='["/register"]'>Регистрирај се</a></p>
+      </div>
+    </div>
+
+  </form>
+
+</div>

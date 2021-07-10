@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "be-the-change-ce39a": {
+      "hosting": {
+        "BeTheChange": [
+          "be-the-change-ce39a"
+        ]
+      }
+    }
+  }
+}

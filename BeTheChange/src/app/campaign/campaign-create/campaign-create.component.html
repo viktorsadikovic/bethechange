@@ -1,0 +1,99 @@
+<div class="container mt-4 mb-4 pb-5">
+
+  <div class="row text-center">
+    <div class="col-md-6 m-auto">
+      <h1>Нова иницијатива</h1>
+    </div>
+  </div>
+
+  <form [formGroup]="campaignForm" (ngSubmit)="onSubmit()">
+    <div class="row pt-4">
+      <div class="col-md-6 m-auto">
+        <div class="form-group">
+          <label for="title">Наслов *</label>
+          <div *ngIf="title.invalid && (title.dirty || title.touched) && title.errors.required" class="alert alert-danger">Required</div>
+          <input type="text" formControlName="title" class="form-control" id="title" aria-describedby="titleHelp" placeholder="Внеси наслов">
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-6 m-auto">
+        <div class="form-group">
+          <label for="description">Опис *</label>
+          <div *ngIf="description.invalid && (description.dirty || description.touched) && description.errors.required" class="alert alert-danger">Required</div>
+          <textarea class="form-control" formControlName="description" id="surname" rows="3" aria-describedby="descriptionHelp" placeholder="Внеси опис"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-6 m-auto">
+        <div class="form-group">
+          <label for="date">Време *</label>
+          <div *ngIf="time.invalid && (time.dirty || time.touched) && time.errors.required" class="alert alert-danger">Required</div>
+          <input type="datetime-local" formControlName="time" class="form-control" id="date" aria-describedby="dateHelp" >
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-6 m-auto">
+        <div class="form-group">
+          <label for="location">Локација *</label>
+          <div *ngIf="location.invalid && (location.dirty || location.touched) && location.errors.required" class="alert alert-danger">Required</div>
+          <input type="text" formControlName="location" class="form-control" id="location" aria-describedby="locationHelp" placeholder="Внеси локација">
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-6 m-auto">
+        <div class="form-group">
+          <label for="category">Категорија *</label>
+          <select formControlName="category" class="form-control" id="category">
+            <option value="ENVIRONMENT">Животна средина</option>
+            <option value="ANIMALS">Животни</option>
+            <option value="HUMAN_RIGHTS">Човечки права</option>
+            <option value="HEALTH">Здравје</option>
+            <option value="EDUCATION">Едукација</option>
+            <option value="OTHER">Останато</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-6 m-auto">
+        <div class="form-group">
+          <label for="quorum">Кворум *</label>
+          <div *ngIf="quorum.invalid && (quorum.dirty || quorum.touched) && quorum.errors.required" class="alert alert-danger">Required</div>
+          <input type="number" formControlName="quorum" class="form-control" min="0" id="quorum" aria-describedby="quorumHelp" placeholder="Внеси кворум">
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-6 m-auto">
+        <div class="form-group">
+          <label for="image">Фотографија *</label>
+          <div *ngIf="image.invalid && (image.dirty || image.touched) && image.errors.required" class="alert alert-danger">Required</div>
+          <input type="file" formControlName="image" (change)="onFileChanged($event)" class="form-control-file" id="image">
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4 justify-content-center">
+      <div class="col-md-3">
+        <button type="button" class="btn w-100 btn-danger" (click)="cancel()">Откажи</button>
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn w-100 custom-button" [disabled]="!campaignForm.valid">Креирај</button>
+      </div>
+    </div>
+
+
+  </form>
+
+</div>
+

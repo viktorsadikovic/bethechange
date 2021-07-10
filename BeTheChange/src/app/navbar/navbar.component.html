@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="d-flex flex-grow-1">
+      <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+      <a class="navbar-brand" [routerLink]="['/home', 'all']">
+          BeTheChange
+      </a>
+      <div class="w-100 text-right">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+      </div>
+  </div>
+  <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
+      <ul class="navbar-nav ml-auto flex-nowrap">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/home','all']">Почетна <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="categories">Категории</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/campaign/new']">Нова иницијатива</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/help']">Помош</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <fa-icon size="2x" [icon]="faUserCircle"></fa-icon>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" *ngIf="!isAuthenticated()" [routerLink]="['/login']">Најави се</a>
+            <a class="dropdown-item" *ngIf="isAuthenticated()" (click)="logOut()">Одјави се</a>
+            <a class="dropdown-item" *ngIf="!isAuthenticated()" [routerLink]="['/register']" >Регистрирај се</a>
+            <a class="dropdown-item" *ngIf="isAuthenticated()" [routerLink]="['/profile', getUserEmail()]">Мој профил</a>
+          </div>
+        </li>
+
+      </ul>
+  </div>
+</nav>

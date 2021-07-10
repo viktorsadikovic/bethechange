@@ -1,0 +1,26 @@
+.comment {
+  background-color: rgb(223, 223, 223);
+  padding: 2%;
+  border-radius: 20px;
+}
+
+.trash {
+  float: right;
+  padding-left: 10px;
+}
+
+.trash:hover{
+  color: #4fd08e!important;
+}
+
+.custom-button{
+  background-color: #4fd08e;
+  color: white;
+}
+
+.custom-button:hover{
+  background-color: white;
+  border: 1px solid;
+  border-color: rgb(85, 85, 85);
+  color: rgb(85, 85, 85);
+}

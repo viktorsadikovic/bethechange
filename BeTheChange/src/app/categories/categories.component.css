@@ -1,0 +1,21 @@
+.card-color{
+  background-color: #4fd08e;
+  color: white;
+}
+
+.card-block {
+  padding:10%;
+}
+.categories-card{
+  padding: 1%;
+}
+
+
+.card-title {
+  margin-bottom: 1.75rem;
+}
+
+.categories-card:hover{
+  transform: translateY(-1.0rem) scale(1.03);
+  cursor: pointer;
+}

@@ -1,0 +1,119 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-12 text-center">
+      <img class="img-fluid" src="https://i.stack.imgur.com/y9DpT.jpg" [src]="campaign?.image">
+    </div>
+  </div>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-md-12 text-center">
+      <fa-icon *ngIf="isAuthor()" class="trash" size="2x" style="cursor: pointer;" [icon]="faTrash" (click)="removeCampaign()"></fa-icon>
+      <fa-icon *ngIf="isAuthor()" class="trash" size="2x" style="cursor: pointer;" [icon]="faPen" (click)="editCampaign()"></fa-icon>
+    </div>
+  </div>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-md-10 text-center">
+      <h2>{{campaign?.title}}</h2>
+    </div>
+  </div>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-md-10 text-right">
+      <img width="50" style="cursor: pointer;" [src]="creator?.profilePictureUrl" class="rounded-circle" [routerLink]="['/profile', creator?.email]">
+      <span class="pl-3" style="cursor: pointer;" [routerLink]="['/profile', creator?.email]">{{creator?.name}} {{creator?.surname}}</span>
+    </div>
+  </div>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-md-10 text-justify">
+      <h3>Опис</h3>
+     <p>{{campaign?.description}}</p>
+    </div>
+  </div>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-md-10 text-justify">
+      <h3>Категорија</h3>
+     <a [routerLink]="['/home', campaign?.category]">{{category}}</a>
+    </div>
+  </div>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-md-5">
+      <h3>Време</h3>
+    </div>
+    <div class="col-md-5">
+      <h4>{{campaign?.time | date:'medium'}}</h4>
+    </div>
+
+  </div>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-md-5">
+      <h3>Место</h3>
+    </div>
+    <div class="col-md-5">
+      <h4>{{campaign?.location}}</h4>
+    </div>
+  </div>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-md-10">
+      <div class="progress w-100">
+        <div class="progress-bar progress-bar-striped progress-bar-green progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [style.width.%]="progress" >{{numJoined}}</div>
+      </div>
+      <h5>{{numJoined}} од {{campaign?.quorum}} корисници ја поддржале иницијативата</h5>
+    </div>
+  </div>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-md-8">
+      <input *ngIf="!isJoined()" class="btn custom-button text-white bold w-100" (click)="joinCampaign()" value="Приклучи се">
+      <input *ngIf="isJoined()" class="btn btn-danger bold w-100" (click)="unjoinCampaign()" value="Откажи се">
+
+    </div>
+    <div class="col-md-2 text-right">
+      <fa-icon *ngIf="!isFavorite()" size="3x" class="heart" style="cursor: pointer;" [icon]="faHeart" (click)="addToFavorites()"></fa-icon>
+      <fa-icon *ngIf="isFavorite()" size="3x" class="heart joined" style="cursor: pointer;" [icon]="faHeart" (click)="removeFromFavorites()"></fa-icon>
+
+    </div>
+  </div>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-md-10">
+      <h3>Корисници кои се приклучиле:</h3>
+    </div>
+    <div class="col-md-10" style="overflow: scroll; height: 100px;">
+      <div class="mb-2 list-joined p-2" *ngFor="let user of joinedUsers" style="cursor: pointer;" [routerLink]="['/profile', user?.email]">
+        <img class="rounded-circle" width="40" [src]="user.profilePictureUrl">
+        <span class="pl-4">{{user.name}} {{user.surname}}</span>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-md-10">
+      <h3>Коментари</h3>
+    </div>
+    <div class="col-md-9 pt-3">
+      <app-campaign-comment *ngFor="let comment of campaign?.comments" [comment]="comment" [campaignId]="campaign?.id" [owner]="isAuthor()" (eventClick)="removeComment($event)"></app-campaign-comment>
+    </div>
+  </div>
+  <form [formGroup]="commentForm" (ngSubmit)="addComment()">
+
+  <div class="row mt-4 mb-4 justify-content-center">
+    <div class="col-md-10">
+      <h3>Додади коментар</h3>
+    </div>
+      <div class="col-md-10">
+        <textarea rows="3" formControlName="content" class="form-control"></textarea>
+      </div>
+      <div class="col-md-10 pt-4">
+        <button type="submit" class="btn comment-btn bold w-100">Коментирај</button>
+      </div>
+  </div>
+</form>
+
+</div>

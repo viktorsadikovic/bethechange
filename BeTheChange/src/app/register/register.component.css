@@ -1,0 +1,11 @@
+.custom-button{
+  background-color: #4fd08e;
+  color: white;
+}
+
+.custom-button:hover{
+  background-color: white;
+  border: 1px solid;
+  border-color: rgb(85, 85, 85);
+  color: rgb(85, 85, 85);
+}

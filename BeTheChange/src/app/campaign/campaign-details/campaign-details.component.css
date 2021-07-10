@@ -1,0 +1,43 @@
+.progress-bar-green {
+  background-color: #4fd08e !important;
+}
+
+.custom-button {
+  background-color: #4fd08e !important;
+}
+
+.custom-button:hover {
+  background-color: rgb(223, 223, 223) !important;
+  color: black !important;
+}
+
+
+.comment-btn {
+  background-color: rgb(223, 223, 223);
+}
+
+.comment-btn:hover {
+  background-color: #4fd08e !important;
+  color: white;
+}
+
+.joined {
+  color: #4fd08e !important;
+}
+
+.heart:hover {
+  color: #4fd08e !important;
+}
+
+.trash {
+  float: right;
+  padding-left: 20px;
+}
+
+.trash:hover{
+  color: #4fd08e!important;
+}
+
+.list-joined:hover {
+  background-color: rgb(223, 223, 223);
+}

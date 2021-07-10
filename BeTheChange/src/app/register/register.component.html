@@ -1,0 +1,107 @@
+<div class="container mt-4 mb-4 pb-5">
+
+  <div class="row text-center">
+    <div class="col-md-6 m-auto">
+      <h1>Регистрирај се</h1>
+    </div>
+  </div>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="row pt-4">
+      <div class="col-md-5 m-auto">
+        <div class="form-group">
+          <label for="name">Име *</label>
+          <div *ngIf="name.invalid && (name.dirty || name.touched) && name.errors.required" class="alert alert-danger">Required</div>
+          <input type="text" formControlName="name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Внеси име">
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-5 m-auto">
+        <div class="form-group">
+          <label for="surname">Презиме *</label>
+          <div *ngIf="surname.invalid && (surname.dirty || surname.touched) && surname.errors.required" class="alert alert-danger">Required</div>
+          <input type="text" formControlName="surname" class="form-control" id="surname" aria-describedby="surnameHelp" placeholder="Внеси презиме">
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-5 m-auto">
+        <div class="form-group">
+          <label for="phone">Телефон *</label>
+          <div *ngIf="phone.invalid && (phone.dirty || phone.touched) && phone.errors.required" class="alert alert-danger">Required</div>
+          <input type="text" formControlName="phone" class="form-control" id="phone" aria-describedby="phoneHelp" placeholder="Внеси телефон">
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-5 m-auto">
+        <div class="form-group">
+          <label for="address">Адреса *</label>
+          <div *ngIf="address.invalid && (address.dirty || address.touched) && address.errors.required" class="alert alert-danger">Required</div>
+          <input type="text" formControlName="address" class="form-control" id="address" aria-describedby="addressHelp" placeholder="Внеси адреса">
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-5 m-auto">
+        <div class="form-group">
+          <label for="email">Е-адреса *</label>
+          <div *ngIf="email.invalid && (email.dirty || email.touched) && email.errors.required" class="alert alert-danger">Required</div>
+          <div *ngIf="email.invalid && (email.dirty || email.touched) && email.errors.email" class="alert alert-danger">Email must contain @ and .</div>
+          <input type="email" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Внеси е-адреса">
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-5 m-auto">
+        <div class="form-group">
+          <label for="password">Лозинка *</label>
+          <div *ngIf="password.invalid && (password.dirty || password.touched) && password.errors.required" class="alert alert-danger">Required</div>
+          <div *ngIf="password.invalid && (password.dirty || password.touched) && password.errors.pattern" class="alert alert-danger">Лозинката мора да содржи минимум 8 карактери, вклучувајќи барем една голема буква, барем една мала буква и број</div>
+          <input type="password" formControlName="password" class="form-control" id="password" aria-describedby="passwordHelp" placeholder="Внеси лозинка">
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-5 m-auto">
+        <div class="form-group">
+          <label for="confirmPassword">Потврди лозинка *</label>
+          <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched) && confirmPassword.errors.required" class="alert alert-danger">Required</div>
+          <div *ngIf="!passwordMatch" class="alert alert-danger">Различни лозинки</div>
+          <input type="password" formControlName="confirmPassword" class="form-control" id="confirmPassword" aria-describedby="confirmPasswordHelp" placeholder="Потврди лозинка">
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-5 m-auto">
+        <div class="form-group">
+          <label for="image">Фотографија *</label>
+          <div *ngIf="image.invalid && (image.dirty || image.touched) && image.errors.required" class="alert alert-danger">Required</div>
+          <input type="file" formControlName="image" (change)="onFileChanged($event)" class="form-control-file" id="image">
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-5 m-auto">
+        <button type="submit" class="btn w-100 custom-button" [disabled]="!registerForm.valid">Регистрирај се</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5 m-auto">
+        <p class="text-center"><a [routerLink]='["/login"]'>Веќе имате креирано профил?</a></p>
+      </div>
+    </div>
+
+
+  </form>
+
+</div>

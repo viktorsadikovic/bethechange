@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: mk.ukim.finki.bethechange.BethechangeApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.98 s - in mk.ukim.finki.bethechange.BethechangeApplicationTests

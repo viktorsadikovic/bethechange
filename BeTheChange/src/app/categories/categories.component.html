@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row my-4">
+    <div class="col-md-5 m-auto text-center">
+      <h1>Категории</h1>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col-md-4 categories-card" [routerLink]="['/home', 'ENVIRONMENT']">
+        <div class="card text-center card-color">
+            <div class="card-block">
+                <h4 class="card-title">Животна средина</h4>
+                <h2>
+                  <fa-icon size="2x" [icon]="faTree"></fa-icon>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 categories-card " [routerLink]="['/home', 'ANIMALS']">
+        <div class="card text-center card-color">
+            <div class="card-block">
+                <h4 class="card-title">Животни</h4>
+                <h2>
+                  <fa-icon size="2x" [icon]="faDog"></fa-icon>
+                </h2>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-4 categories-card " [routerLink]="['/home', 'HUMAN_RIGHTS']">
+        <div class="card text-center card-color">
+            <div class="card-block">
+                <h4 class="card-title">Човечки права</h4>
+                <h2><fa-icon size="2x" [icon]="faBalanceScale"></fa-icon></h2>
+            </div>
+
+        </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col-md-4 categories-card" [routerLink]="['/home', 'HEALTH']">
+        <div class="card text-center card-color">
+            <div class="card-block">
+                <h4 class="card-title">Здравје</h4>
+                <h2>
+                  <fa-icon size="2x" [icon]="faHeartbeat"></fa-icon>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 categories-card " [routerLink]="['/home', 'EDUCATION']">
+        <div class="card text-center card-color">
+            <div class="card-block">
+                <h4 class="card-title">Едукација</h4>
+                <h2>
+                  <fa-icon size="2x" [icon]="faGraduationCap"></fa-icon>
+                </h2>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-4 categories-card " [routerLink]="['/home', 'OTHER']">
+        <div class="card text-center card-color">
+            <div class="card-block">
+                <h4 class="card-title">Останато</h4>
+                <h2><fa-icon size="2x" [icon]="faQuestion"></fa-icon></h2>
+            </div>
+
+        </div>
+    </div>
+  </div>
+</div>
